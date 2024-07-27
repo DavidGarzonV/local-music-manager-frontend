@@ -1,0 +1,24 @@
+@import url("public/fonts/fonts.scss");
+
+html,
+body,
+.principal-container,
+#root {
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	font-family: "Poppins", sans-serif;
+}
+
+*[hidden] {
+	visibility: hidden !important;
+}
+
+.error {
+	color: (var(--red-500)) !important;
+}
+
+.p-column-filter-overlay-menu .p-column-filter-buttonbar {
+	gap: 10px;
+}

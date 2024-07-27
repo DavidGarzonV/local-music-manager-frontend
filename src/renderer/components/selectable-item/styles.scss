@@ -1,0 +1,16 @@
+.selectable-item:hover {
+	border: 3px dotted var(--cyan-200);
+	background-color: var(--cyan-50);
+	cursor: pointer;
+}
+
+.selectable-item {
+	border: 3px solid transparent;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+.selectable-item.selected {
+	border: 3px solid var(--cyan-300);
+	border-radius: 10px;
+}

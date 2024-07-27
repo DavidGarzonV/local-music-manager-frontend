@@ -1,0 +1,19 @@
+.playlist-item {
+	width: 120px;
+	text-align: center;
+	height: 150px;
+
+	.details span {
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		text-overflow: ellipsis;
+		color: var(--text-color);
+	}
+}
+
+.p-avatar.p-avatar-xl {
+	width: 6rem;
+	height: 6rem;
+}

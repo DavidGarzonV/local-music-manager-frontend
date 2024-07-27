@@ -1,0 +1,144 @@
+{
+	"info": "Atención",
+	"warning": "Atención",
+	"noInternet": "No hay conexión a internet, por favor verifica tu conexión e intenta de nuevo",
+	"yes": "Sí",
+	"loading": "Cargando...",
+	"selectFolder": "Seleccionar carpeta",
+	"error": "Ocurrió un error",
+	"unexpectedError": "Ha ocurrido un error inesperado",
+	"reload": "Recargar",
+	"save": "Guardar",
+	"search": "Buscar",
+	"choose": "Examinar",
+	"folder": "Carpeta",
+	"goToYt": "Ir a Youtube Music",
+	"login": {
+		"login": "Iniciar sesión",
+		"loginFirst": "Para comenzar inicia sesión en Google",
+		"loading": "Cargando inicio de sesión...",
+		"loadingSignIn": "Iniciando sesión...",
+		"errorAccount": "Error signing in, please grant Local Music Manager permission to manage your YouTube Music account",
+		"error": "Error signing in",
+		"waitingConfirmation": "Esperando la confirmación de tu inicio de sesión en Google..."
+	},
+	"logout": {
+		"logout": "Cerrar sesión",
+		"confirm": "¿Cerrar sesión y salir?"
+	},
+	"enableHelp": {
+		"enable": "Habilitar",
+		"help": "Ayuda",
+		"close": "Cerrar ayuda",
+		"enableHelp": "Habilitar ayuda",
+		"disableHelp": "Deshabilitar ayuda",
+		"helpEnabled": "Ayuda habilitada",
+		"helpDisabled": "Ayuda deshabilitada"
+	},
+	"confirmFinishLoad": "¿Agregar canciones y finalizar?",
+	"steps": {
+		"previous": "Paso anterior",
+		"next": "Siguiente paso",
+		"finish": "Finalizar",
+		"finishLoad": "Finalizar carga",
+		"returnLocalFiles": "Volver a mi música",
+		"reset": "Comenzar de nuevo"
+	},
+	"menuItems": {
+		"directory": "Carpeta de música",
+		"playlist": "Lista de reproducción",
+		"localFiles": "Archivos de música",
+		"searchFiles": "Buscar en YTMusic",
+		"loadStatus": "Resultados"
+	},
+	"helps": {
+		"selectFolder": "Buscar carpeta en tu dispositivo",
+		"filesInFolder": "Archivos en la carpeta",
+		"searchDirectory": "Para agregar canciones a tu biblioteca de música, primero selecciona una carpeta con archivos de música",
+		"playlist": "Selecciona la lista de reproducción a la que deseas agregar tus canciones, o si prefieres, puedes crear una nueva",
+		"localFiles": "Elige los archivos de música que quieres buscar y agregar en Youtube Music",
+		"searchFiles": "Selecciona las canciones de Youtube Music que deseas agregar a la lista de reproducción"
+	},
+	"playlist": {
+		"searching": "Buscando playlists...",
+		"create": "Crear lista de reproducción",
+		"select": "Seleccionar Playlist",
+		"privacity": "Privacidad de la lista",
+		"selectPrivacity": "Selecciona la privacidad de la lista",
+		"public": "Pública",
+		"private": "Privada"
+	},
+	"form": {
+		"name": "Nombre",
+		"nameRequired": "El nombre es obligatorio",
+		"description": "Descripción"
+	},
+	"localFiles": {
+		"default": "Por defecto se mostrarán los archivos",
+		"fileStatus": "los archivos con estado",
+		"previousSearched": "son los que anteriormente se han buscado y agregado a una lista de reproducción",
+		"unProcessed": "Sin procesar",
+		"processed": "Procesado",
+		"canFilter": "Puedes filtrar los archivos haciendo clic en el icono",
+		"canFilterComplement": "que se encuentra al lado de cada columna de la tabla",
+		"searching": "Buscando archivos...",
+		"selectedOf": "archivos seleccionados de",
+		"empty": "No hay archivos para mostrar",
+		"selectAll": "Seleccionar todos los archivos",
+		"clearFilter": "Reiniciar filtros",
+		"fileName": "Nombre del archivo",
+		"status": "Estado",
+		"title": "Título",
+		"artist": "Artista"
+	},
+	"pagination": {
+		"showingFrom": "Mostrando del",
+		"to": "al",
+		"total": "de un total de"
+	},
+	"searchFiles": {
+		"default": "Por defecto, encontrarás el mejor resultado, pero puedes buscar más opciones haciendo clic en el icono",
+		"nameSong": "o en el nombre de la canción",
+		"selecting": "Si seleccionas la misma canción en varias ocasiones, sólo se agregará&nbsp;<strong>una (1)</strong>&nbsp;a la lista de reproducción.",
+		"addingSongs": "Agregando canciones a Playlist...",
+		"searching": "Buscando canciones en Youtube Music...",
+		"preparing": "Preparando todo para la búsqueda...",
+		"addAndContinue": "Agregar y continuar",
+		"searchFinished": "Búsqueda finalizada, canciones agregadas a la lista de reproducción.",
+		"searchFinishedError": "Error buscando o agregando canciones"
+	},
+	"loadStatus": {
+		"processResults": "Resultados del proceso",
+		"oneAddedSong": "1 canción nueva agregada.",
+		"totalAddedSongs": "canciones nuevas agregadas.",
+		"oneDuplicatedSong": "1 canción duplicada en la lista.",
+		"totalDuplicatedSongs": "canciones duplicadas en la lista.",
+		"openPlaylist": "Ver playlist",
+		"duplicatedOnList": "Canciones duplicadas en la lista:",
+		"noSongs": "No hay canciones para mostrar",
+		"notAddedSongs": "Canciones que no se pudieron agregar"
+	},
+	"songResults": {
+		"additionalResultsFor": "Resultados adicionales para",
+		"searchOnYt": "Buscar en Youtube Music",
+		"searchWithOriginalName": "Buscar con el nombre original",
+		"noSongs": "No hay canciones para mostrar",
+		"selectedResult": "Resultado seleccionado",
+		"bestMatch": "Mejor coincidencia",
+		"searchOnLocal": "Ubicar en disco",
+		"noResults": "No hay coincidencias",
+		"playOnYt": "Reproducir en Youtube Music",
+		"seeMore": "Ver más detalles"
+	},
+	"song": {
+		"cover": "Carátula",
+		"type": "Tipo",
+		"title": "Título",
+		"artists": "Artistas",
+		"album": "Álbum",
+		"duration": "Duración",
+		"name": "Nombre",
+		"nameSong": "Nombre de la canción",
+		"songDetails": "Detalles de la canción"
+	}
+}

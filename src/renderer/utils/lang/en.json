@@ -1,0 +1,144 @@
+{
+	"info": "Info",
+	"warning": "Warning",
+	"noInternet": "No internet connection, please check your connection and try again",
+	"yes": "Yes",
+	"loading": "Loading...",
+	"selectFolder": "Select folder",
+	"error": "An error occurred",
+	"unexpectedError": "An unexpected error has occurred",
+	"reload": "Reload",
+	"save": "Save",
+	"search": "Search",
+	"choose": "Choose",
+	"folder": "Folder",
+	"goToYt": "Go to Youtube Music",
+	"login": {
+		"login": "Sign in",
+		"loginFirst": "",
+		"loading": "Loading login...",
+		"loadingSignIn": "Signing in...",
+		"errorAccount": "Error signing in, please grant Local Music Manager permission to manage your YouTube Music account",
+		"error": "Error signing in",
+		"waitingConfirmation": "Waiting for Google confirmation..."
+	},
+	"logout": {
+		"logout": "Sign out",
+		"confirm": "Are you sure you want to sign out?"
+	},
+	"help": {
+		"enable": "Enable",
+		"help": "Help",
+		"close": "Close",
+		"enableHelp": "Enable help",
+		"disableHelp": "Disable help",
+		"helpEnabled": "Help enabled",
+		"helpDisabled": "Help disabled"
+	},
+	"confirmFinishLoad": "Add songs and finish?",
+	"steps": {
+		"previous": "Previous step",
+		"next": "Next step",
+		"finish": "Finish",
+		"finishLoad": "Finish load",
+		"returnLocalFiles": "Return to my music",
+		"reset": "Start again"
+	},
+	"menuItems": {
+		"directory": "Music folder",
+		"playlist": "Playlist",
+		"localFiles": "Music files",
+		"searchFiles": "Search on YTMusic",
+		"loadStatus": "Results"
+	},
+	"helps": {
+		"selectFolder": "Search folder on your device",
+		"filesInFolder": "Files in the folder",
+		"searchDirectory": "To add songs to your music library, first select a folder with music files.",
+		"playlist": "Select the playlist to which you want to add your songs, or if you prefer, you can create a new one.",
+		"localFiles": "Choose the music files you want to search for and add to YouTube Music",
+		"searchFiles": "Select the YouTube Music songs you want to add to the playlist"
+	},
+	"playlist": {
+		"searching": "Searching playlists...",
+		"create": "Create playlist",
+		"select": "Select Playlist",
+		"privacity": "Playlist privacy",
+		"selectPrivacity": "Select playlist privacy",
+		"public": "Public",
+		"private": "Private"
+	},
+	"form": {
+		"name": "Name",
+		"nameRequired": "Name is required",
+		"description": "Description"
+	},
+	"localFiles": {
+		"default": "By default, the files will be displayed",
+		"fileStatus": "files with status",
+		"previousSearched": "are those that have previously been searched and added to a playlist",
+		"unProcessed": "Unprocessed",
+		"processed": "Processed",
+		"canFilter": "You can filter the files by clicking on the icon",
+		"canFilterComplement": "located next to each column of the table",
+		"searching": "Searching files...",
+		"selectedOf": "files selected of",
+		"empty": "No files found to show",
+		"selectAll": "Select all files",
+		"clearFilter": "Reset filters",
+		"fileName": "File name",
+		"status": "Status",
+		"title": "Title",
+		"artist": "Artist"
+	},
+	"pagination": {
+		"showingFrom": "Showing from",
+		"to": "to",
+		"total": "out of a total of"
+	},
+	"searchFiles": {
+		"default": "By default, you will find the best result, but you can search for more options by clicking on the icon",
+		"nameSong": "or on the name of the song",
+		"selecting": "If you select the same song multiple times, only&nbsp;<strong>one (1)</strong>&nbsp;will be added to the playlist.",
+		"addingSongs": "Adding songs to Playlist...",
+		"searching": "Searching for songs on YouTube Music...",
+		"preparing": "Preparing everything for the search...",
+		"addAndContinue": "Add and continue",
+		"searchFinished": "Search finished, songs added to the playlist.",
+		"searchFinishedError": "Error searching or adding songs"
+	},
+	"loadStatus": {
+		"processResults": "Process results",
+		"oneAddedSong": "1 new song added.",
+		"totalAddedSongs": "new songs added.",
+		"oneDuplicatedSong": "1 duplicated song in the list.",
+		"totalDuplicatedSongs": "duplicated songs in the list.",
+		"goToPlaylist": "View playlist",
+		"duplicatedOnList": "Duplicated songs in the list:",
+		"noSongs": "No songs to display",
+		"notAddedSongs": "Songs that could not be added"
+	},
+	"songResults": {
+		"additionalResultsFor": "Additional results for",
+		"searchOnYt": "Search on YouTube Music",
+		"searchWithOriginalName": "Search with the original name",
+		"noSongs": "No songs to display",
+		"selectedResult": "Selected result",
+		"bestMatch": "Best match",
+		"searchOnLocal": "Locate on disk",
+		"noResults": "No matches",
+		"playOnYt": "Play on YouTube Music",
+		"seeMore": "See more details"
+	},
+	"song": {
+		"cover": "Cover",
+		"type": "Type",
+		"title": "Title",
+		"artists": "Artists",
+		"album": "Album",
+		"duration": "Duration",
+		"name": "Name",
+		"nameSong": "Song name",
+		"songDetails": "Song details"
+	}
+}

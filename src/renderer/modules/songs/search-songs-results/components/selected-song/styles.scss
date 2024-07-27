@@ -1,0 +1,30 @@
+$thumbnail-size: 60px;
+$thumbnail-size-large: 120px;
+
+.selected-song{
+	.p-avatar.p-avatar-image{
+		width: $thumbnail-size;
+		height: $thumbnail-size;
+
+		img{
+			width: $thumbnail-size;
+			height: $thumbnail-size;
+		}
+	}
+	
+	&:hover{
+		cursor: pointer;
+	}
+}
+
+.selected-song-details{
+	.p-avatar.p-avatar-image{
+		width: $thumbnail-size-large;
+		height: $thumbnail-size-large;
+
+		img{
+			width: $thumbnail-size-large;
+			height: $thumbnail-size-large;
+		}
+	}
+}
