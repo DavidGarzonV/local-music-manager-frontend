@@ -7,7 +7,7 @@ import { Message } from 'primereact/message';
 import fetchRequest from '../../../../utils/fetch';
 import Loading from '../../../../components/loading';
 
-import { setLoggedIn } from '../../../../redux/slices/login';
+import { setIsConfigured, setLoggedIn } from '../../../../redux/slices/login';
 import { removeItem, setValue } from '../../../../utils/ls';
 import { SessionResponse } from '../../../../common/types';
 import { setLoadingApp } from '../../../../redux/slices/loading';
@@ -29,6 +29,8 @@ export default function AuthScreen() {
   const [error, setError] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [loadingLogin, setLoadingLogin] = useState<boolean>(false);
+  const [showReconfigure, setShowReconfigure] = useState<boolean>(false);
+
   const [waitingConfirmation, setWaitingConfirmation] =
     useState<boolean>(false);
   const eventDefined = useRef(false);
@@ -37,6 +39,9 @@ export default function AuthScreen() {
   const loginGoogle = () => {
     window.electron.ipcRenderer.sendMessage('open-web', authUrl.current);
     setWaitingConfirmation(true);
+    setTimeout(() => {
+      setShowReconfigure(true);
+    }, 3000);
   };
 
   const saveAccessToken = useCallback(
@@ -73,6 +78,12 @@ export default function AuthScreen() {
     },
     [dispatch, saveAccessToken],
   );
+  
+  const configureAgain = () => {
+    setWaitingConfirmation(false);
+    dispatch(setLoggedIn(false));
+    dispatch(setIsConfigured(false));
+  }
 
   useEffect(() => {
     if (!eventDefined.current) {
@@ -161,6 +172,17 @@ export default function AuthScreen() {
           <div className="mt-3 flex flex-row align-items-center justify-content-center">
             <Loading />
             <span>{getLabel('login.waitingConfirmation')}</span>
+          </div>
+        )}
+
+        {showReconfigure && (
+          <div>
+            <Button
+              icon="pi pi-cog"
+              label={getLabel('configure.configure')}
+              onClick={configureAgain}
+              severity="secondary"
+            />
           </div>
         )}
       </div>

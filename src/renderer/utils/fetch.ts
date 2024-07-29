@@ -1,6 +1,6 @@
 import { confirmDialog } from 'primereact/confirmdialog';
 import { sendLogToApp } from '.';
-import { setLoggedIn } from '../redux/slices/login';
+import { setIsConfigured, setLoggedIn } from '../redux/slices/login';
 import store from '../redux/store';
 import { getValue, removeItem, setValue } from './ls';
 import { SessionResponse } from '../common/types';
@@ -80,6 +80,12 @@ const fetchRequest = async <T>(
 
   const promiseResult = await fetch(finalPath, fetchOptions)
     .then(async (res) => {
+      if (res.status === 400 && res.url.includes('auth/login')) {
+        store.dispatch(setLoggedIn(false));
+        store.dispatch(setIsConfigured(false));
+        return undefined;
+      }
+
       if (res.status === 401 || res.statusText === 'UNAUTHORIZED') {
         if (attempts === 0) {
           attempts += 1;

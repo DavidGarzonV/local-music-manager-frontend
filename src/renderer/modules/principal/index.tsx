@@ -16,6 +16,8 @@ import { SessionResponse } from '../../common/types';
 import Loading from '../../components/loading';
 import logo from '../../../../assets/icon.png';
 import getLabel from '../../utils/lang';
+import { Dialog } from 'primereact/dialog';
+import ConfigureForm from './components/configure-form';
 
 type CheckResponse = {
   Success: boolean;
@@ -29,6 +31,7 @@ export default function Principal() {
   );
   const loggedIn = useSelector((state: RootState) => state.login.loggedIn);
   const lang = useSelector((state: RootState) => state.login.lang);
+  const isConfigured = useSelector((state: RootState) => state.login.isConfigured);
   const [, updateState] = useState<object>();
   const dispatch = useDispatch();
 
@@ -118,6 +121,18 @@ export default function Principal() {
             <span>{getLabel('loading')}</span>
           </div>
         </div>
+      )}
+
+      {!loggedIn && (
+        <Dialog
+          header={getLabel('configure.title')}
+          style={{ width: '50vw' }}
+          visible={!isConfigured}
+          onHide={() => {}}
+          closable={false}
+        >
+          <ConfigureForm/>
+        </Dialog>
       )}
     </div>
   );

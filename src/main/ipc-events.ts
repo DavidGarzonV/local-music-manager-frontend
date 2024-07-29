@@ -2,6 +2,7 @@
 import { app, ipcMain, dialog, BrowserWindow, shell } from 'electron'; // deconstructing assignment
 import log from 'electron-log';
 import fs from 'fs';
+import { destroyBackendApp, startBackendApp } from './api-backend';
 
 const getPathToSave = () => {
   const appDataPath = app.getAppPath();
@@ -118,6 +119,12 @@ const setIpcEvents = (mainWindow: BrowserWindow | null) => {
     if (fs.existsSync(params)) {
       shell.showItemInFolder(params);
     }
+  });
+
+  ipcMain.on('reload-server', async (event) => {
+    destroyBackendApp();
+    await startBackendApp();
+    event.reply('server-reloaded');
   });
 };
 

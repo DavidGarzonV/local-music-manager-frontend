@@ -140,5 +140,9 @@
 		"name": "Nombre",
 		"nameSong": "Nombre de la canción",
 		"songDetails": "Detalles de la canción"
+	},
+	"configure": {
+		"title": "Configurar Local Music Manager",
+		"configure": "Configurar Google OAuth"
 	}
 }

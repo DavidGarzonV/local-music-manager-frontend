@@ -8,9 +8,9 @@ export default function getLabel(label: string) {
 
   if (label.includes('.')) {
     const [firstLabel, ...rest] = label.split('.');
-    let nestedLabel = langFile[firstLabel];
+    let nestedLabel = langFile[firstLabel] || firstLabel;
     rest.forEach((nested) => {
-      nestedLabel = nestedLabel[nested];
+      nestedLabel = nestedLabel[nested] || nested;
     });
     return nestedLabel;
   }
