@@ -1,10 +1,12 @@
 import { Button } from 'primereact/button';
 import { useDispatch, useSelector } from 'react-redux';
 import { confirmDialog } from 'primereact/confirmdialog';
+import { Dropdown } from 'primereact/dropdown';
+import { useEffect } from 'react';
 
 import fetchRequest from '../../../utils/fetch';
-import { setLoggedIn } from '../../../redux/slices/login';
-import { removeItem } from '../../../utils/ls';
+import { setLang, setLoggedIn } from '../../../redux/slices/login';
+import { getValue, removeItem, setValue } from '../../../utils/ls';
 import './styles.scss';
 import {
   ClosedHelps,
@@ -27,6 +29,7 @@ export default function Header() {
   const activeIndex = useSelector(
     (state: RootState) => state.steps.activeIndex,
   );
+  const lang = useSelector((state: RootState) => state.login.lang);
 
   const logout = async () => {
     confirmDialog({
@@ -55,12 +58,36 @@ export default function Header() {
     dispatch(setClosedHelps(data));
   };
 
+  const onchangeLang = (selectedLang: string) => {
+    setValue('lang', selectedLang);
+    dispatch(setLang(selectedLang));
+  };
+
+  useEffect(() => {
+    const savedLang = getValue('lang');
+    if (savedLang) {
+      dispatch(setLang(savedLang));
+    }
+  }, [dispatch]);
+
   return (
     <header className="app-header">
       <div className="flex flex-row justify-content-between">
         <h1>Local Music Manager</h1>
 
         <div>
+          <Dropdown
+            value={lang}
+            onChange={(e) => onchangeLang(e.value)}
+            options={[
+              { name: 'EN', value: 'en' },
+              { name: 'ES', value: 'es' },
+            ]}
+            optionLabel="name"
+            placeholder={lang}
+            className="mr-3"
+          />
+
           <Button
             icon="pi pi-question"
             rounded

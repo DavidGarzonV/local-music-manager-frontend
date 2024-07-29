@@ -22,3 +22,13 @@ body,
 .p-column-filter-overlay-menu .p-column-filter-buttonbar {
 	gap: 10px;
 }
+
+.p-dialog {
+	.p-dialog-content {
+		padding: 2rem 1.5rem 2rem 1.5rem;
+	}
+
+	.p-dialog-footer {
+		padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+	}
+}

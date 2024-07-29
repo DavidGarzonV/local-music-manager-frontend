@@ -12,6 +12,7 @@ import { removeItem, setValue } from '../../../../utils/ls';
 import { SessionResponse } from '../../../../common/types';
 import { setLoadingApp } from '../../../../redux/slices/loading';
 import getLabel from '../../../../utils/lang';
+import logo from '../../../../../../assets/icon.png';
 
 import './styles.scss';
 
@@ -115,7 +116,12 @@ export default function AuthScreen() {
   return (
     <div className="login">
       <div className="flex flex-column align-content-center justify-content-center text-center p-8">
-        <h1>{getLabel('login.loginFirst')}</h1>
+        <h1>Local Music Manager</h1>
+        <div className="flex justify-content-center align-content-center">
+          <img src={logo} alt="Logo" width={150} height={150} />
+        </div>
+
+        <h2>{getLabel('login.loginFirst')}</h2>
         {loading && (
           <div className="mt-3 flex flex-row align-items-center justify-content-center">
             <Loading />

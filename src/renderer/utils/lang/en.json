@@ -15,7 +15,7 @@
 	"goToYt": "Go to Youtube Music",
 	"login": {
 		"login": "Sign in",
-		"loginFirst": "",
+		"loginFirst": "To get started, sign in with Google",
 		"loading": "Loading login...",
 		"loadingSignIn": "Signing in...",
 		"errorAccount": "Error signing in, please grant Local Music Manager permission to manage your YouTube Music account",

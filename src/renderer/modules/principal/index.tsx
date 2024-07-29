@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ConfirmDialog } from 'primereact/confirmdialog';
 
@@ -28,6 +28,8 @@ export default function Principal() {
     (state: RootState) => state.loading.loadingApp,
   );
   const loggedIn = useSelector((state: RootState) => state.login.loggedIn);
+  const lang = useSelector((state: RootState) => state.login.lang);
+  const [, updateState] = useState<object>();
   const dispatch = useDispatch();
 
   const refreshToken = useCallback(async () => {
@@ -63,6 +65,10 @@ export default function Principal() {
 
     validateLogindAndRefresh();
   }, [loggedIn, createIntervalForRefresh, refreshToken, dispatch]);
+
+  useEffect(() => {
+    updateState({});
+  }, [lang]);
 
   useEffect(() => {
     const checkConnection = async () => {
