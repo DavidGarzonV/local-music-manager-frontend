@@ -147,7 +147,7 @@ if (!gotTheLock) {
         destroyBackendApp();
       }
 
-      await startBackendApp()
+      await startBackendApp();
       createWindow();
 
       app.on('activate', () => {

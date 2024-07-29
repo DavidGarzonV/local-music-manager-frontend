@@ -3,13 +3,13 @@ import { CaseReducer, PayloadAction, createSlice } from '@reduxjs/toolkit';
 type LoginState = {
   loggedIn: boolean;
   lang: string;
-  isConfigured: boolean
+  isConfigured: boolean;
 };
 
 const initialState: LoginState = {
   loggedIn: false,
   lang: 'en',
-  isConfigured: true
+  isConfigured: true,
 };
 
 const setLoginReducer: CaseReducer<LoginState, PayloadAction<boolean>> = (
@@ -19,10 +19,10 @@ const setLoginReducer: CaseReducer<LoginState, PayloadAction<boolean>> = (
   state.loggedIn = action.payload;
 };
 
-const setIsConfiguredReducer: CaseReducer<LoginState, PayloadAction<boolean>> = (
-  state,
-  action,
-) => {
+const setIsConfiguredReducer: CaseReducer<
+  LoginState,
+  PayloadAction<boolean>
+> = (state, action) => {
   state.isConfigured = action.payload;
 };
 
@@ -39,7 +39,7 @@ export const loginSlice = createSlice({
   reducers: {
     setLoggedIn: setLoginReducer,
     setLang: setLangReducer,
-    setIsConfigured: setIsConfiguredReducer
+    setIsConfigured: setIsConfiguredReducer,
   },
 });
 

@@ -10,7 +10,7 @@ import { setIsConfigured } from '../../../../redux/slices/login';
 
 export default function ConfigureForm() {
   const dispatch = useDispatch();
-	const [validate, setValidate] = useState(false);
+  const [validate, setValidate] = useState(false);
   const [dataForm, setDataForm] = useState({
     client_id: '',
     project_id: 'local-music-manager',
@@ -19,7 +19,7 @@ export default function ConfigureForm() {
   });
 
   const configure = async () => {
-		setValidate(true);
+    setValidate(true);
 
     if (
       dataForm.client_id === '' ||
@@ -29,22 +29,22 @@ export default function ConfigureForm() {
     ) {
       return;
     }
-		dispatch(setLoadingApp(true));
+    dispatch(setLoadingApp(true));
 
-		const data = await fetchRequest<{Success: boolean}>('auth/configure', {
+    const data = await fetchRequest<{ Success: boolean }>('auth/configure', {
       method: 'POST',
-			body: dataForm,
+      body: dataForm,
     });
 
-		if (data?.Success) {
-			dispatch(setIsConfigured(true));
-			window.electron.ipcRenderer.sendMessage('reload-server');
-		}
+    if (data?.Success) {
+      dispatch(setIsConfigured(true));
+      window.electron.ipcRenderer.sendMessage('reload-server');
+    }
   };
 
   window.electron.ipcRenderer.on('server-reloaded', () => {
     window.location.reload();
-  })
+  });
 
   return (
     <div>
@@ -55,8 +55,8 @@ export default function ConfigureForm() {
           placeholder="local-music-manager"
           required
           autoFocus
-					value={dataForm.project_id}
-					invalid={validate && dataForm.project_id.trim() === ''}
+          value={dataForm.project_id}
+          invalid={validate && dataForm.project_id.trim() === ''}
           onChange={(e) =>
             setDataForm({
               ...dataForm,
@@ -72,8 +72,8 @@ export default function ConfigureForm() {
           placeholder="Google Client ID"
           required
           autoFocus
-					value={dataForm.client_id}
-					invalid={validate && dataForm.client_id.trim() === ''}
+          value={dataForm.client_id}
+          invalid={validate && dataForm.client_id.trim() === ''}
           onChange={(e) =>
             setDataForm({
               ...dataForm,
@@ -89,8 +89,8 @@ export default function ConfigureForm() {
           placeholder="Google Client Secret"
           required
           autoFocus
-					value={dataForm.client_secret}
-					invalid={validate && dataForm.client_secret.trim() === ''}
+          value={dataForm.client_secret}
+          invalid={validate && dataForm.client_secret.trim() === ''}
           onChange={(e) =>
             setDataForm({
               ...dataForm,
@@ -106,8 +106,8 @@ export default function ConfigureForm() {
           placeholder="https://davidgarzonv.github.io/local-music-manager-auth"
           required
           autoFocus
-					value={dataForm.redirect_uri}
-					invalid={validate && dataForm.redirect_uri.trim() === ''}
+          value={dataForm.redirect_uri}
+          invalid={validate && dataForm.redirect_uri.trim() === ''}
           onChange={(e) =>
             setDataForm({
               ...dataForm,

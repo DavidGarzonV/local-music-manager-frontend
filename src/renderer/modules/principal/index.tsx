@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ConfirmDialog } from 'primereact/confirmdialog';
 
+import { Dialog } from 'primereact/dialog';
 import { RootState } from '../../redux/store';
 import { setLoggedIn } from '../../redux/slices/login';
 import Header from '../layout/header';
@@ -16,7 +17,6 @@ import { SessionResponse } from '../../common/types';
 import Loading from '../../components/loading';
 import logo from '../../../../assets/icon.png';
 import getLabel from '../../utils/lang';
-import { Dialog } from 'primereact/dialog';
 import ConfigureForm from './components/configure-form';
 
 type CheckResponse = {
@@ -31,7 +31,9 @@ export default function Principal() {
   );
   const loggedIn = useSelector((state: RootState) => state.login.loggedIn);
   const lang = useSelector((state: RootState) => state.login.lang);
-  const isConfigured = useSelector((state: RootState) => state.login.isConfigured);
+  const isConfigured = useSelector(
+    (state: RootState) => state.login.isConfigured,
+  );
   const [, updateState] = useState<object>();
   const dispatch = useDispatch();
 
@@ -131,7 +133,7 @@ export default function Principal() {
           onHide={() => {}}
           closable={false}
         >
-          <ConfigureForm/>
+          <ConfigureForm />
         </Dialog>
       )}
     </div>

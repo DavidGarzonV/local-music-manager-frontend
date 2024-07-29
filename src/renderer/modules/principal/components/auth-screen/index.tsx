@@ -78,12 +78,12 @@ export default function AuthScreen() {
     },
     [dispatch, saveAccessToken],
   );
-  
+
   const configureAgain = () => {
     setWaitingConfirmation(false);
     dispatch(setLoggedIn(false));
     dispatch(setIsConfigured(false));
-  }
+  };
 
   useEffect(() => {
     if (!eventDefined.current) {
