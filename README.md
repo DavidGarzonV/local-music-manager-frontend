@@ -14,12 +14,15 @@ npm install
 
 ## Packaging for Production Executable
 
-Copy the contents of backend executable to folder:
+**Note:** The Backend API can be downloaded from [local-music-manager-backend](https://github.com/DavidGarzonV/local-music-manager-backend/releases/latest).
 
-- `server\_internal_`
-- `server\local-music-manager-bg.exe`
+1. Download `localmusicmanager.zip`.
+2. Copy the contents of **backend API** to folder `server` and unpack:
 
-**Note:** How to configure the backend: [local-music-manager-backend](https://github.com/DavidGarzonV/local-music-manager-backend/blob/main/README.md)
+The server folder should look like this
+- `server\_internal`
+- `server\localmusicmanager.exe`
+- `server\.gitkeep`
 
 To package apps for the current OS platform:
 
@@ -31,6 +34,12 @@ The application installer can be found in the folder: `release/build`
 
 **Finally, execute the file `LocalMusicManager Setup 2.0.0.exe` to install**
 
+### The default instalation app is:
+
+- on Windows: %USERPROFILE%\AppData\Local\Programs\{app name}
+
+---
+
 ### Sign the application
 
 **For Windows**: Install [signtool](https://learn.microsoft.com/es-es/windows/win32/seccrypto/signtool)
@@ -40,20 +49,15 @@ Configure the environment variables:
 - CSC_LINK
 - CSC_KEY_PASSWORD
 
-To understand how the sign works, follow the instructions placed here: [code signing](https://www.electron.build/code-signing.html)
+To understand how the sign works, follow the instructions placed here: [Code Signing (electron-builder)](https://www.electron.build/code-signing.html)
 
-### The logs for the production application can be found in the folder:
+### The logs for the installed application can be found in the folder:
 
 - on Windows: %USERPROFILE%\AppData\Roaming\{app name}\logs\main.log
 - on Linux: ~/.config/{app name}/logs/main.log
 - on macOS: ~/Library/Logs/{app name}/main.log
 
-### The default instalation app is:
-
-- on Windows: %USERPROFILE%\AppData\Local\Programs\{app name}
-
---- 
-## For development purposes
+## For local execution
 
 Create a file called `.env` with the configuration values for executing the app.
 
@@ -74,10 +78,7 @@ Access to Logged Screens:
 2. Login with Google
 3. Catch the redirection token values
 4. Call the backend endpoint `api/v1/auth/session`
-5. Then, create the variable `accessToken` in Local Storage
-```javascript
-window.localStorage.setItem('accessToken', '')
-```
+5. Then, create the variable `accessToken` in Local Storage `window.localStorage.setItem('accessToken', '')`
 6. Reload
 
 ---
