@@ -31,6 +31,17 @@ The application installer can be found in the folder: `release/build`
 
 **Finally, execute the file `LocalMusicManager Setup 2.0.0.exe` to install**
 
+### Sign the application
+
+**For Windows**: Install [signtool](https://learn.microsoft.com/es-es/windows/win32/seccrypto/signtool)
+
+Configure the environment variables: 
+
+- CSC_LINK
+- CSC_KEY_PASSWORD
+
+To understand how the sign works, follow the instructions placed here: [code signing](https://www.electron.build/code-signing.html)
+
 ### The logs for the production application can be found in the folder:
 
 - on Windows: %USERPROFILE%\AppData\Roaming\{app name}\logs\main.log
@@ -43,6 +54,8 @@ The application installer can be found in the folder: `release/build`
 
 --- 
 ## For development purposes
+
+Create a file called `.env` with the configuration values for executing the app.
 
 Start the app in the `dev` environment:
 

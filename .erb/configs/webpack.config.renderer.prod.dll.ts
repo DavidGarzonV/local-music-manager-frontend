@@ -10,7 +10,7 @@ import webpackPaths from './webpack.paths';
 import { dependencies } from '../../package.json';
 import checkNodeEnv from '../scripts/check-node-env';
 
-checkNodeEnv('development');
+checkNodeEnv('production');
 
 const dist = webpackPaths.dllPath;
 
@@ -28,16 +28,16 @@ function getDependencies(especialLibraries: string[]): string[] {
 const configuration: webpack.Configuration = {
   context: webpackPaths.rootPath,
   devtool: 'eval',
-  mode: 'development',
+  mode: 'production',
   target: 'electron-renderer',
   externals: ['fsevents', 'crypto-browserify'],
-  module: require('./webpack.config.renderer.dev').default.module,
+  module: require('./webpack.config.renderer.prod').default.module,
   entry: {
     renderer: getDependencies(['primereact', 'primeflex', 'primeicons']),
   },
   output: {
     path: dist,
-    filename: '[name].dev.dll.js',
+    filename: '[name].prod.dll.js',
     library: {
       name: 'renderer',
       type: 'var',

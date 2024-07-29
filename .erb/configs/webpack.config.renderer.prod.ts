@@ -19,13 +19,9 @@ deleteSourceMaps();
 
 const configuration: webpack.Configuration = {
   devtool: 'source-map',
-
   mode: 'production',
-
   target: ['web', 'electron-renderer'],
-
   entry: [path.join(webpackPaths.srcRendererPath, 'index.tsx')],
-
   output: {
     path: webpackPaths.distRendererPath,
     publicPath: './',
@@ -34,34 +30,15 @@ const configuration: webpack.Configuration = {
       type: 'umd',
     },
   },
-
   optimization: {
     minimize: true,
     minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
   },
-
   plugins: [
-    /**
-     * Create global constants which can be configured at compile time.
-     *
-     * Useful for allowing different behaviour between development builds and
-     * release builds
-     *
-     * NODE_ENV should be production so that modules do not perform certain
-     * development checks
-     */
-    new webpack.EnvironmentPlugin({
-      NODE_ENV: 'production',
-      DEBUG_PROD: false,
-      BACKEND_URL: 'http://127.0.0.1:5000/api/v1',
-      REFRESH_INTERVAL: 30,
-    }),
-
     new BundleAnalyzerPlugin({
       analyzerMode: process.env.ANALYZE === 'true' ? 'server' : 'disabled',
       analyzerPort: 8889,
     }),
-
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.join(webpackPaths.srcRendererPath, 'index.html'),
@@ -73,7 +50,6 @@ const configuration: webpack.Configuration = {
       isBrowser: false,
       isDevelopment: false,
     }),
-
     new webpack.DefinePlugin({
       'process.type': '"renderer"',
     }),

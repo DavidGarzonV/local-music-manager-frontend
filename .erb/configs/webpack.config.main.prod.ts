@@ -17,16 +17,12 @@ deleteSourceMaps();
 
 const configuration: webpack.Configuration = {
   devtool: 'source-map',
-
   mode: 'production',
-
   target: 'electron-main',
-
   entry: {
     main: path.join(webpackPaths.srcMainPath, 'main.ts'),
     preload: path.join(webpackPaths.srcMainPath, 'preload.ts'),
   },
-
   output: {
     path: webpackPaths.distMainPath,
     filename: '[name].js',
@@ -34,7 +30,6 @@ const configuration: webpack.Configuration = {
       type: 'umd',
     },
   },
-
   optimization: {
     minimizer: [
       new TerserPlugin({
@@ -42,28 +37,11 @@ const configuration: webpack.Configuration = {
       }),
     ],
   },
-
   plugins: [
     new BundleAnalyzerPlugin({
       analyzerMode: process.env.ANALYZE === 'true' ? 'server' : 'disabled',
       analyzerPort: 8888,
     }),
-
-    /**
-     * Create global constants which can be configured at compile time.
-     *
-     * Useful for allowing different behaviour between development builds and
-     * release builds
-     *
-     * NODE_ENV should be production so that modules do not perform certain
-     * development checks
-     */
-    new webpack.EnvironmentPlugin({
-      NODE_ENV: 'production',
-      DEBUG_PROD: false,
-      START_MINIMIZED: false,
-    }),
-
     new webpack.DefinePlugin({
       'process.type': '"browser"',
     }),
