@@ -14,11 +14,14 @@ exports.default = function signServer() {
     return;
   }
 
-  exec(
-    `signtool sign /fd SHA256 /f ${CSC_LINK} /p ${CSC_KEY_PASSWORD} "../../server/localmusicmanager.exe"`,
-    (error) => {
-      console.error('Error signing server application');
-      console.error(error);
-    },
-  );
+  const serverPath = `${process.cwd()}/server/localmusicmanager.exe`;
+  const command = `signtool sign /f ${CSC_LINK} /p ${CSC_KEY_PASSWORD} /fd SHA256 "${serverPath}"`;
+
+  exec(command, (error) => {
+    if (error) {
+      console.error('Error signing server application -> ', error);
+    } else {
+      console.info('Server application signed successfully');
+    }
+  });
 };
