@@ -4,15 +4,14 @@
 
 import webpack from 'webpack';
 import TsconfigPathsPlugins from 'tsconfig-paths-webpack-plugin';
-import DotenvWebpackPlugin from 'dotenv-webpack';
+import dotenv from 'dotenv';
+import fs from 'fs';
 import webpackPaths from './webpack.paths';
 import { dependencies as externals } from '../../release/app/package.json';
 
 const configuration: webpack.Configuration = {
   externals: [...Object.keys(externals || {})],
-
   stats: 'errors-only',
-
   module: {
     rules: [
       {
@@ -34,7 +33,6 @@ const configuration: webpack.Configuration = {
 
   output: {
     path: webpackPaths.srcPath,
-    // https://github.com/webpack/webpack/issues/1114
     library: {
       type: 'commonjs2',
     },
@@ -50,7 +48,15 @@ const configuration: webpack.Configuration = {
     plugins: [new TsconfigPathsPlugins()],
   },
 
-  plugins: [new DotenvWebpackPlugin()],
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'process.env.DEBUG_PROD': JSON.stringify(
+        dotenv.parse(fs.readFileSync(`${process.cwd()}/.env`)).DEBUG_PROD ??
+          'false',
+      ),
+    }),
+  ],
 };
 
 export default configuration;

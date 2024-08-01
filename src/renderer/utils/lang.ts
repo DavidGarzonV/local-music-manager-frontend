@@ -2,7 +2,7 @@ import { getValue } from './ls';
 
 export default function getLabel(label: string) {
   const savedLang = getValue('lang');
-  const defaultLang = savedLang ?? 'en';
+  const defaultLang = savedLang || 'en';
   // eslint-disable-next-line global-require
   const langFile = require(`./lang/${defaultLang}.json`);
 

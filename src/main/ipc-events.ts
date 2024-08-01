@@ -1,8 +1,7 @@
 /* eslint-disable global-require */
-import { app, ipcMain, dialog, BrowserWindow, shell } from 'electron'; // deconstructing assignment
+import { app, ipcMain, dialog, BrowserWindow, shell } from 'electron';
 import log from 'electron-log';
 import fs from 'fs';
-import { destroyBackendApp, startBackendApp } from './api-backend';
 
 const getPathToSave = () => {
   const appDataPath = app.getAppPath();
@@ -84,9 +83,7 @@ const setIpcEvents = (mainWindow: BrowserWindow | null) => {
             const newDataFile = JSON.parse(dataFile);
             dataFile = JSON.stringify([...processedFiles, ...newDataFile]);
             // eslint-disable-next-line no-empty
-          } catch (error) {
-            log.error('Error parsing data for save');
-          }
+          } catch (error) {}
         }
       }
 
@@ -115,16 +112,10 @@ const setIpcEvents = (mainWindow: BrowserWindow | null) => {
     });
   });
 
-  ipcMain.on('search-local', (event, params: string) => {
+  ipcMain.on('search-local', (_, params: string) => {
     if (fs.existsSync(params)) {
       shell.showItemInFolder(params);
     }
-  });
-
-  ipcMain.on('reload-server', async (event) => {
-    destroyBackendApp();
-    await startBackendApp();
-    event.reply('server-reloaded');
   });
 };
 

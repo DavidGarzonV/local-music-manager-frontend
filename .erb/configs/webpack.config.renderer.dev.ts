@@ -7,6 +7,7 @@ import chalk from 'chalk';
 import { merge } from 'webpack-merge';
 import { execSync, spawn } from 'child_process';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import DotenvWebpackPlugin from 'dotenv-webpack';
 import webpackPaths from './webpack.paths';
 import checkNodeEnv from '../scripts/check-node-env';
 import rendererCommonConfiguration from './webpack.config.renderer.common';
@@ -31,7 +32,7 @@ if (
       'The DLL files are missing. Sit back while we build them for you with "npm run build-dll"',
     ),
   );
-  execSync('npm run postinstall');
+  execSync('npm run build:dll');
 }
 
 const configuration: webpack.Configuration = {
@@ -79,6 +80,7 @@ const configuration: webpack.Configuration = {
       isDevelopment: process.env.NODE_ENV !== 'production',
       nodeModules: webpackPaths.appNodeModulesPath,
     }),
+    new DotenvWebpackPlugin(),
   ],
   node: {
     __dirname: false,

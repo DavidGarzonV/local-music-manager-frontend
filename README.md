@@ -1,6 +1,6 @@
 # Local Music Manager
 
-App for migrate music from local computer files to Youtube Music Playlists, the application uses [local-music-manager-backend](https://github.com/DavidGarzonV/local-music-manager-backend) as backend.
+App for load music from local computer files to Youtube Music Playlists, the application uses [local-music-manager-backend](https://github.com/DavidGarzonV/local-music-manager-backend) as backend.
 
 **Note**: Only tested in Windows.
 
@@ -83,4 +83,4 @@ Access to Logged Screens:
 
 ---
 
-Initial project structure based in https://github.com/electron-react-boilerplate/
+Initial project structure based in https://github.com/electron-react-boilerplate/electron-react-boilerplate

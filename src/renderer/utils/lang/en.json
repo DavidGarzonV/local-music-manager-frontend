@@ -30,7 +30,7 @@
 		"enable": "Enable",
 		"help": "Help",
 		"close": "Close",
-		"enableHelp": "Enable help",
+		"enableHelp": "Show help",
 		"disableHelp": "Disable help",
 		"helpEnabled": "Help enabled",
 		"helpDisabled": "Help disabled"
@@ -113,8 +113,8 @@
 		"totalAddedSongs": "new songs added.",
 		"oneDuplicatedSong": "1 duplicated song in the list.",
 		"totalDuplicatedSongs": "duplicated songs in the list.",
-		"goToPlaylist": "View playlist",
-		"duplicatedOnList": "Duplicated songs in the list:",
+		"openPlaylist": "View playlist",
+		"duplicatedOnList": "Duplicated songs in the list",
 		"noSongs": "No songs to display",
 		"notAddedSongs": "Songs that could not be added"
 	},

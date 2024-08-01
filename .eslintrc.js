@@ -21,6 +21,7 @@ module.exports = {
     'jsx-a11y/label-has-associated-control': 'off',
     'promise/no-nesting': 'off',
     'import/no-dynamic-require': 'off',
+    'no-underscore-dangle': 'off',
     semi: 1,
   },
   parserOptions: {

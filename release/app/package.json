@@ -1,0 +1,17 @@
+{
+  "name": "local-music-manager",
+  "version": "2.0.0",
+  "description": "Application to load local music to Youtube Music",
+  "author": {
+    "name": "David Garzón Vélez",
+    "email": "dgv241198@gmail.com",
+    "url": "https://github.com/DavidGarzonV/local-music-manager-frontend"
+  },
+  "main": "./dist/main/main.js",
+  "scripts": {
+    "rebuild": "node -r ts-node/register ../../.erb/scripts/electron-rebuild.js",
+    "postinstall": "npm run rebuild && npm run link-modules",
+    "link-modules": "node -r ts-node/register ../../.erb/scripts/link-modules.ts"
+  },
+  "dependencies": {}
+}

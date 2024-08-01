@@ -1,7 +1,7 @@
-/* eslint import/prefer-default-export: off */
 import { URL } from 'url';
 import path from 'path';
 
+// eslint-disable-next-line import/prefer-default-export
 export function resolveHtmlPath(htmlFileName: string): string {
   if (process.env.NODE_ENV === 'development') {
     const port = process.env.PORT || 1212;

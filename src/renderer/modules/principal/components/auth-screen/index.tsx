@@ -37,11 +37,15 @@ export default function AuthScreen() {
   const dispatch = useDispatch();
 
   const loginGoogle = () => {
-    window.electron.ipcRenderer.sendMessage('open-web', authUrl.current);
-    setWaitingConfirmation(true);
-    setTimeout(() => {
-      setShowReconfigure(true);
-    }, 3000);
+    if (authUrl.current) {
+      window.electron.ipcRenderer.sendMessage('open-web', authUrl.current);
+      setWaitingConfirmation(true);
+      setTimeout(() => {
+        setShowReconfigure(true);
+      }, 3000);
+    } else {
+      setError(true);
+    }
   };
 
   const saveAccessToken = useCallback(
@@ -54,6 +58,7 @@ export default function AuthScreen() {
         dispatch(setLoggedIn(false));
         removeItem('accessToken');
       } else {
+        setError(false);
         dispatch(setLoggedIn(true));
         setValue('accessToken', data!.Response.access_token);
       }
@@ -87,6 +92,7 @@ export default function AuthScreen() {
 
   useEffect(() => {
     if (!eventDefined.current) {
+      eventDefined.current = true;
       window.electron.ipcRenderer.on('auth-response', (deepLinkUrl) => {
         setLoadingLogin(true);
 
@@ -101,7 +107,6 @@ export default function AuthScreen() {
           createSession(code, state);
         }
       });
-      eventDefined.current = true;
     }
   }, [createSession]);
 
@@ -116,6 +121,7 @@ export default function AuthScreen() {
         setError(true);
       } else {
         authUrl.current = data.Response.url;
+        setError(false);
       }
 
       setLoading(false);
@@ -176,7 +182,7 @@ export default function AuthScreen() {
         )}
 
         {showReconfigure && (
-          <div>
+          <div className="mt-3">
             <Button
               icon="pi pi-cog"
               label={getLabel('configure.configure')}

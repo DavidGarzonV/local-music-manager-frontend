@@ -28,8 +28,8 @@ export const getDetailImage = (thumbnails: Thumbnail[]): string | null => {
   return newThumbs.length > 0 ? newThumbs[0].url : null;
 };
 
-export const sendLogToApp = (...params: any[]) => {
-  window.electron.ipcRenderer.sendMessage('send-log', params);
+export const sendLogToApp = (params: string) => {
+  window.electron.ipcRenderer.sendMessage('send-log', `[Renderer] ${params}`);
 };
 
 const removeExtensionFromFilename = (fileName: string): string => {

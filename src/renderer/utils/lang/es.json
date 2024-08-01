@@ -30,7 +30,7 @@
 		"enable": "Habilitar",
 		"help": "Ayuda",
 		"close": "Cerrar ayuda",
-		"enableHelp": "Habilitar ayuda",
+		"enableHelp": "Mostrar ayuda",
 		"disableHelp": "Deshabilitar ayuda",
 		"helpEnabled": "Ayuda habilitada",
 		"helpDisabled": "Ayuda deshabilitada"

@@ -9,9 +9,7 @@ export type Channels =
   | 'save-file'
   | 'get-file'
   | 'file-obtained'
-  | 'search-local'
-  | 'reload-server'
-  | 'server-reloaded';
+  | 'search-local';
 
 const electronHandler = {
   ipcRenderer: {

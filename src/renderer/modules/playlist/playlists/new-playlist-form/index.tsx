@@ -23,9 +23,11 @@ const DEFAULT_FORM: PlaylistData = {
 
 export default function NewPlayListForm(props: NewPlayListFormProps) {
   const { onSave } = props;
+  const [validate, setValidate] = useState(false);
   const [dataForm, setDataForm] = useState<PlaylistData>(DEFAULT_FORM);
 
   const savePlaylist = async () => {
+    setValidate(true);
     if (dataForm.name.trim()) {
       onSave(dataForm);
     }
@@ -46,6 +48,7 @@ export default function NewPlayListForm(props: NewPlayListFormProps) {
           placeholder={getLabel('form.name')}
           required
           autoFocus
+          invalid={validate && !dataForm.name.trim()}
           onChange={(e) =>
             setDataForm({
               ...dataForm,
@@ -53,7 +56,11 @@ export default function NewPlayListForm(props: NewPlayListFormProps) {
             })
           }
         />
-        <small id="name-help" className="error" hidden={!!dataForm.name.trim()}>
+        <small
+          id="name-help"
+          className="error"
+          hidden={!!dataForm.name.trim() && validate}
+        >
           {getLabel('form.nameRequired')}
         </small>
       </div>

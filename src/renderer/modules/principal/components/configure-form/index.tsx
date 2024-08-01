@@ -11,10 +11,12 @@ import { setIsConfigured } from '../../../../redux/slices/login';
 export default function ConfigureForm() {
   const dispatch = useDispatch();
   const [validate, setValidate] = useState(false);
+  // TODO - REMOVE DEFAULTS
   const [dataForm, setDataForm] = useState({
-    client_id: '',
+    client_id:
+      '64251361632-18ir4at9f7k1v4it3du1l4b7349kjlq3.apps.googleusercontent.com',
     project_id: 'local-music-manager',
-    client_secret: '',
+    client_secret: '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',
     redirect_uri: 'https://davidgarzonv.github.io/local-music-manager-auth',
   });
 
@@ -38,13 +40,9 @@ export default function ConfigureForm() {
 
     if (data?.Success) {
       dispatch(setIsConfigured(true));
-      window.electron.ipcRenderer.sendMessage('reload-server');
+      dispatch(setLoadingApp(false));
     }
   };
-
-  window.electron.ipcRenderer.on('server-reloaded', () => {
-    window.location.reload();
-  });
 
   return (
     <div>
@@ -54,7 +52,6 @@ export default function ConfigureForm() {
           id="project_id"
           placeholder="local-music-manager"
           required
-          autoFocus
           value={dataForm.project_id}
           invalid={validate && dataForm.project_id.trim() === ''}
           onChange={(e) =>
@@ -88,7 +85,6 @@ export default function ConfigureForm() {
           id="client_secret"
           placeholder="Google Client Secret"
           required
-          autoFocus
           value={dataForm.client_secret}
           invalid={validate && dataForm.client_secret.trim() === ''}
           onChange={(e) =>
@@ -105,7 +101,6 @@ export default function ConfigureForm() {
           id="redirect_uri"
           placeholder="https://davidgarzonv.github.io/local-music-manager-auth"
           required
-          autoFocus
           value={dataForm.redirect_uri}
           invalid={validate && dataForm.redirect_uri.trim() === ''}
           onChange={(e) =>

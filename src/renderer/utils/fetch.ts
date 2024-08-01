@@ -115,7 +115,7 @@ const fetchRequest = async <T>(
       attempts = 0;
 
       if (!res.ok) {
-        sendLogToApp(`Error request, status: ${res.statusText}`);
+        sendLogToApp(`Request error, status: ${res.statusText}`);
         throw new Error(res.statusText);
       }
 
@@ -123,7 +123,7 @@ const fetchRequest = async <T>(
     })
     .catch((error) => {
       // eslint-disable-next-line no-console
-      console.info('Error request ->');
+      console.info('Request error ->');
       // eslint-disable-next-line no-console
       console.error(error);
       return undefined;

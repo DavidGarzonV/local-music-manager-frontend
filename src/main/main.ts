@@ -9,11 +9,11 @@
  * `./src/main.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import { app, BrowserWindow, shell, dialog } from 'electron';
+import { app, BrowserWindow, shell } from 'electron';
 import log from 'electron-log';
 import { resolveHtmlPath } from './util';
 import setIpcEvents from './ipc-events';
-import { destroyBackendApp, startBackendApp } from './api-backend';
+import ApiBackend from './api-backend';
 
 // Register our application to handle all "local-music-manager://" protocols.
 if (process.defaultApp) {
@@ -74,23 +74,14 @@ const createWindow = async () => {
       mainWindow.maximize();
       mainWindow.show();
     }
+
+    if (isDebug) {
+      mainWindow.webContents.openDevTools();
+    }
   });
 
   mainWindow.on('closed', () => {
     mainWindow = null;
-  });
-
-  mainWindow.on('close', (e) => {
-    const choice = dialog.showMessageBoxSync(mainWindow!, {
-      type: 'question',
-      buttons: ['Si', 'No'],
-      title: 'Atención',
-      message: '¿Cerrar la aplicación?',
-    });
-
-    if (choice === 1) {
-      e.preventDefault();
-    }
   });
 
   // Open urls in the user's browser
@@ -107,7 +98,7 @@ const createWindow = async () => {
  */
 
 app.on('window-all-closed', () => {
-  destroyBackendApp();
+  ApiBackend.destroyBackendApp();
   // Respect the OSX convention of having the application in memory even
   // after all windows have been closed
   if (process.platform !== 'darwin') {
@@ -118,7 +109,7 @@ app.on('window-all-closed', () => {
 process.on('uncaughtException', (err) => {
   log.error('uncaughtException ->');
   log.error(err);
-  destroyBackendApp();
+  ApiBackend.destroyBackendApp();
 });
 
 const gotTheLock = app.requestSingleInstanceLock();
@@ -142,12 +133,11 @@ if (!gotTheLock) {
 
   app
     .whenReady()
-    .then(async () => {
+    .then(() => {
       if (isDebug) {
-        destroyBackendApp();
+        ApiBackend.destroyBackendApp();
       }
-
-      await startBackendApp();
+      ApiBackend.startBackendApp();
       createWindow();
 
       app.on('activate', () => {
