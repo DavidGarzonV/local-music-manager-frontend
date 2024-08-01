@@ -31,8 +31,6 @@ export default class ApiBackend {
       }
     }
 
-    log.info('Starting server app...');
-
     const backendApp = spawn(pathBackendApp, []);
     if (isDebug) {
       backendApp.stdin.on('data', (data) => {
