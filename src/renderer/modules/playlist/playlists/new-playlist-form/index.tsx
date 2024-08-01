@@ -59,7 +59,7 @@ export default function NewPlayListForm(props: NewPlayListFormProps) {
         <small
           id="name-help"
           className="error"
-          hidden={!!dataForm.name.trim() && validate}
+          hidden={!!dataForm.name.trim() || !validate}
         >
           {getLabel('form.nameRequired')}
         </small>

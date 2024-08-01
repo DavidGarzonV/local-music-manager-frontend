@@ -32,7 +32,7 @@ npm run package
 
 The application installer can be found in the folder: `release/build`
 
-**Finally, execute the file `LocalMusicManager Setup 2.0.0.exe` to install**
+**Finally, execute the file `LocalMusicManager Setup <version>.exe` to install**
 
 ### The default instalation app is:
 

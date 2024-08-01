@@ -1,6 +1,6 @@
 {
   "name": "local-music-manager",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Application to load local music to Youtube Music",
   "author": {
     "name": "David Garzón Vélez",
