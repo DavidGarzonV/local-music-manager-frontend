@@ -26,6 +26,8 @@ The server folder should look like this
 
 To package apps for the current OS platform:
 
+**Before package**: If you have run the project locally, remember to check if there are any files in the `server/_internal/app/config_files' folder and delete them. Also remove the value for the `SECRET_KEY` environment defined in `server/_internal/.env`.
+
 ```bash
 npm run package
 ```
