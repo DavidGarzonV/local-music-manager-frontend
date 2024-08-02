@@ -113,7 +113,7 @@ export default function SelectFilesToUpload() {
       <Column selectionMode="multiple" headerStyle={{ width: '3rem' }} />
       <Column
         field="file_name"
-        header={getLabel('localFiles.filename')}
+        header={getLabel('localFiles.fileName')}
         sortable
         filter
       />

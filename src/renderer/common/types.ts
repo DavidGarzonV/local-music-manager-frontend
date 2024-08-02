@@ -35,7 +35,7 @@ export interface YtSong {
   resultType: string;
   videoId: string;
   title: string;
-  artists: Artist[];
+  artists?: Artist[];
   album: string;
   thumbnails: Thumbnail[];
   isBestMatch: boolean;

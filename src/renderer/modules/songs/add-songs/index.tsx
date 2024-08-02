@@ -118,6 +118,12 @@ export default function AddSongs({ finishLoadSongs }: AddSongsProps) {
           notAddedSongs: data.NotAddedVideos,
           success: data.Success,
         });
+      } else {
+        finishLoadSongs({
+          totalSongs: 0,
+          notAddedSongs: songsList,
+          success: false,
+        });
       }
     };
 

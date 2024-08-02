@@ -31,6 +31,10 @@ body,
 	.p-dialog-footer {
 		padding: 0.5rem 1.5rem 1.5rem 1.5rem;
 	}
+
+	.p-dialog-header{
+		border-bottom: 1px solid #dddd;
+	}
 }
 
 label[for]{

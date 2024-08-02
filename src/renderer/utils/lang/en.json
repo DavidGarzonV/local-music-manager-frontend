@@ -116,7 +116,9 @@
 		"openPlaylist": "View playlist",
 		"duplicatedOnList": "Duplicated songs in the list",
 		"noSongs": "No songs to display",
-		"notAddedSongs": "Songs that could not be added"
+		"notAddedSongs": "Songs that could not be added",
+		"oneNotAddedSong": "1 song could not be added.",
+		"totalNotAddedSongs": "songs could not be added."
 	},
 	"songResults": {
 		"additionalResultsFor": "Additional results for",

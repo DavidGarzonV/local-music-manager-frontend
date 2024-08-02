@@ -50,27 +50,28 @@ export default function LoadStatus() {
         return [];
       }
 
-      const results = [];
+      const results: ResultLoadSong[] = [];
       for (let index = 0; index < videoIds.length; index++) {
         const videoId = videoIds[index];
         const result = searchResults.find((item) => item.videoId === videoId)!;
 
         if (result) {
+          const { artists, ...rest } = result;
           results.push({
-            ...result,
-            artist: getArtistsName(result.artists),
+            ...rest,
+            artist: artists ? getArtistsName(artists) : '',
           });
         }
       }
 
-      results.sort((a, b) => {
-        if (a.artists === b.artists) {
+      const resultsSorted = [...results].sort((a, b) => {
+        if (a.artist === b.artist) {
           return a.title.localeCompare(b.title);
         }
         return a.artist.localeCompare(b.artist);
       });
 
-      return results;
+      return resultsSorted;
     },
     [searchResults],
   );
@@ -103,6 +104,13 @@ export default function LoadStatus() {
                     ? getLabel('loadStatus.oneDuplicatedSong')
                     : `${notAddedAlreadyInList.length} ${getLabel(
                         'loadStatus.totalDuplicatedSongs',
+                      )}`}
+                </strong>
+                <strong className="mb-2">
+                  {notAddedSongs.length === 1
+                    ? getLabel('loadStatus.oneNotAddedSong')
+                    : `${notAddedSongs.length} ${getLabel(
+                        'loadStatus.totalNotAddedSongs',
                       )}`}
                 </strong>
                 <Button
@@ -153,10 +161,7 @@ export default function LoadStatus() {
                 emptyMessage={getLabel('loadStatus.noSongs')}
                 rows={6}
               >
-                <Column
-                  field="artists"
-                  header={getLabel('localFiles.artist')}
-                />
+                <Column field="artist" header={getLabel('localFiles.artist')} />
                 <Column field="title" header={getLabel('form.name')} />
                 <Column
                   field="fileName"

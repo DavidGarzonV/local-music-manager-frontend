@@ -11,12 +11,10 @@ import { setIsConfigured } from '../../../../redux/slices/login';
 export default function ConfigureForm() {
   const dispatch = useDispatch();
   const [validate, setValidate] = useState(false);
-  // TODO - REMOVE DEFAULTS
   const [dataForm, setDataForm] = useState({
-    client_id:
-      '64251361632-18ir4at9f7k1v4it3du1l4b7349kjlq3.apps.googleusercontent.com',
+    client_id: '',
     project_id: 'local-music-manager',
-    client_secret: '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',
+    client_secret: '',
     redirect_uri: 'https://davidgarzonv.github.io/local-music-manager-auth',
   });
 
