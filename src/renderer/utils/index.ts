@@ -1,4 +1,4 @@
-import { Artist, Thumbnail } from '../common/types';
+import { Artist, Playlist, Thumbnail } from '../common/types';
 
 export const getArtistsName = (artists: Artist[]): string => {
   return artists.map((item) => item.name)?.join(', ');
@@ -90,4 +90,12 @@ export const encodeBase64 = (data: string) => {
 
 export const decodeBase64 = (data: string) => {
   return atob(data);
+};
+
+export const getPlaylistImage = (playlist: Playlist): string | undefined => {
+  if (playlist.thumbnails.length > 0) {
+    return playlist.thumbnails[0].url;
+  }
+
+  return undefined;
 };

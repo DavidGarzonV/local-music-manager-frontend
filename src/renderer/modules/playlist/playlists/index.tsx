@@ -22,6 +22,7 @@ import NewPlayListForm, { PlaylistData } from './new-playlist-form';
 import HelpTemplate from '../../../components/help-template';
 import { setIsLastSearch } from '../../../redux/slices/steps';
 import getLabel from '../../../utils/lang';
+import { getPlaylistImage } from '../../../utils';
 
 export default function Playlists() {
   const dispatch = useDispatch();
@@ -34,14 +35,6 @@ export default function Playlists() {
   const playlistSelected = useSelector(
     (state: RootState) => state.playlist.playlist,
   );
-
-  const getImage = (playlist: Playlist): string | undefined => {
-    if (playlist.thumbnails.length > 0) {
-      return playlist.thumbnails[0].url;
-    }
-
-    return undefined;
-  };
 
   const onSelectPlaylist = (playlistId: string) => {
     if (!playlists) return;
@@ -132,7 +125,7 @@ export default function Playlists() {
               onSelectItem={onSelectPlaylist}
               title={getLabel('playlist.select')}
             >
-              <PlaylistItem name={item.title} image={getImage(item)} />
+              <PlaylistItem name={item.title} image={getPlaylistImage(item)} />
             </SelectableItem>
           ))}
       </div>

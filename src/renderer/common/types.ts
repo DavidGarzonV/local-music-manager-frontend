@@ -79,3 +79,12 @@ export type FinishLoadDataType = {
   totalSongs: number;
   notAddedSongs: string[];
 };
+
+export interface PlaylistSong {
+  title: string;
+  videoId: string;
+  setVideoId: string;
+  artists: Artist[];
+  thumbnails: Thumbnail[];
+  duration: string;
+}

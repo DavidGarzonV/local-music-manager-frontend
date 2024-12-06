@@ -4,6 +4,7 @@ import { setIsConfigured, setLoggedIn } from '../redux/slices/login';
 import store from '../redux/store';
 import { getValue, removeItem, setValue } from './ls';
 import { SessionResponse } from '../common/types';
+import getLabel from './lang';
 
 type EnabledFetchValues = string | object | boolean | number;
 
@@ -96,16 +97,16 @@ const fetchRequest = async <T>(
 
         attempts = 0;
         confirmDialog({
-          message: 'Debe iniciar sesión para continuar',
+          message: getLabel('login.mustLoginHelp'),
           defaultFocus: 'accept',
-          header: 'Debe iniciar sesión',
+          header: getLabel('login.mustLogin'),
           icon: 'pi pi-info-circle',
           blockScroll: true,
           closable: false,
           closeOnEscape: false,
           closeIcon: null,
           rejectClassName: 'hidden',
-          acceptLabel: 'Aceptar',
+          acceptLabel: getLabel('accept'),
           accept: () => {
             removeItem('accessToken');
             store.dispatch(setLoggedIn(false));

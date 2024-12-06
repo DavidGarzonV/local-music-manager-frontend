@@ -11,8 +11,12 @@
 	"save": "Guardar",
 	"search": "Buscar",
 	"choose": "Examinar",
+	"delete": "Eliminar",
 	"folder": "Carpeta",
+	"accept": "Aceptar",
+	"cancel": "Cancelar",
 	"goToYt": "Ir a Youtube Music",
+	"checkDuplicates": "Canciones de Playlists",
 	"login": {
 		"login": "Iniciar sesión",
 		"loginFirst": "Para comenzar inicia sesión en Google",
@@ -20,7 +24,9 @@
 		"loadingSignIn": "Iniciando sesión...",
 		"errorAccount": "Error signing in, please grant Local Music Manager permission to manage your YouTube Music account",
 		"error": "Error signing in",
-		"waitingConfirmation": "Esperando la confirmación de tu inicio de sesión en Google..."
+		"waitingConfirmation": "Esperando la confirmación de tu inicio de sesión en Google...",
+		"mustLogin": "Debe iniciar sesión",
+		"mustLoginHelp": "Debes iniciar sesión para continuar"
 	},
 	"logout": {
 		"logout": "Cerrar sesión",
@@ -57,7 +63,8 @@
 		"searchDirectory": "Para agregar canciones a tu biblioteca de música, primero selecciona una carpeta con archivos de música",
 		"playlist": "Selecciona la lista de reproducción a la que deseas agregar tus canciones, o si prefieres, puedes crear una nueva",
 		"localFiles": "Elige los archivos de música que quieres buscar y agregar en Youtube Music",
-		"searchFiles": "Selecciona las canciones de Youtube Music que deseas agregar a la lista de reproducción"
+		"searchFiles": "Selecciona las canciones de Youtube Music que deseas agregar a la lista de reproducción",
+		"playlistDuplicates": "Selecciona las canciones deseadas para administrar en la lista de reproducción"
 	},
 	"playlist": {
 		"searching": "Buscando playlists...",
@@ -146,5 +153,14 @@
 	"configure": {
 		"title": "Configurar Local Music Manager",
 		"configure": "Configurar Google OAuth"
+	},
+	"playlistDuplicates": {
+		"title": "Canciones de la lista de reproducción",
+		"searching": "Buscando playlists...",
+		"searchingSongs": "Buscando canciones...",
+		"subTitle": "Lista de canciones",
+		"check": "Obtener canciones",
+		"deletingSongs": "Eliminando canciones...",
+		"searchSongs": "Palabra clave"
 	}
 }

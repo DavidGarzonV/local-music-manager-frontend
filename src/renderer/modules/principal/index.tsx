@@ -58,7 +58,7 @@ export default function Principal() {
   }, [refreshToken]);
 
   useEffect(() => {
-    const validateLogindAndRefresh = async () => {
+    const validateLoginAndRefresh = async () => {
       if (loggedIn) {
         dispatch(setLoadingApp(true));
         createIntervalForRefresh();
@@ -68,7 +68,7 @@ export default function Principal() {
       dispatch(setLoadingApp(false));
     };
 
-    validateLogindAndRefresh();
+    validateLoginAndRefresh();
   }, [loggedIn, createIntervalForRefresh, refreshToken, dispatch]);
 
   useEffect(() => {

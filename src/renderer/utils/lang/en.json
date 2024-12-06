@@ -11,8 +11,12 @@
 	"save": "Save",
 	"search": "Search",
 	"choose": "Choose",
+	"delete": "Delete",
 	"folder": "Folder",
+	"accept": "Accept",
+	"cancel": "Cancel",
 	"goToYt": "Go to Youtube Music",
+	"checkDuplicates": "Playlists Songs",
 	"login": {
 		"login": "Sign in",
 		"loginFirst": "To get started, sign in with Google",
@@ -20,7 +24,9 @@
 		"loadingSignIn": "Signing in...",
 		"errorAccount": "Error signing in, please grant Local Music Manager permission to manage your YouTube Music account",
 		"error": "Error signing in",
-		"waitingConfirmation": "Waiting for Google confirmation..."
+		"waitingConfirmation": "Waiting for Google confirmation...",
+		"mustLogin": "You must sign in",
+		"mustLoginHelp": "You must sign in to continue"
 	},
 	"logout": {
 		"logout": "Sign out",
@@ -57,7 +63,8 @@
 		"searchDirectory": "To add songs to your music library, first select a folder with music files.",
 		"playlist": "Select the playlist to which you want to add your songs, or if you prefer, you can create a new one.",
 		"localFiles": "Choose the music files you want to search for and add to YouTube Music",
-		"searchFiles": "Select the YouTube Music songs you want to add to the playlist"
+		"searchFiles": "Select the YouTube Music songs you want to add to the playlist",
+		"playlistDuplicates": "Select the desired songs to perform actions in the playlist"
 	},
 	"playlist": {
 		"searching": "Searching playlists...",
@@ -146,5 +153,16 @@
 	"configure": {
 		"title": "Configure Local Music Manager",
 		"configure": "Configure Google OAuth"
+	},
+	"playlistDuplicates": {
+		"title": "Playlist Songs",
+		"searching": "Searching playlists...",
+		"searchingSongs": "Searching songs...",
+		"subTitle": "List of songs",
+		"check": "Get songs",
+		"deleteMessage": "Are you sure you want to delete the selected songs?",
+		"deleteHeader": "Delete songs",
+		"deletingSongs": "Deleting songs...",
+		"searchSongs": "Keyboard Search"
 	}
 }
