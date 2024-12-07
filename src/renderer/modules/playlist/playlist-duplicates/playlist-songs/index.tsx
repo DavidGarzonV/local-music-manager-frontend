@@ -42,7 +42,7 @@ export default function PlayListSongs({
 }: PlayListSongsProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const [selectedSongs, setSelectedSongs] = useState<PlaylistSong[]>([]);
-  const savedSongs = useRef<PlaylistSong[]>([]);
+  const playlistSongs = useRef<PlaylistSong[]>([]);
   const [filters, setFilters] = useState<DataTableFilterMeta>({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
   });
@@ -66,7 +66,7 @@ export default function PlayListSongs({
   };
 
   const getSongs = useCallback(async () => {
-    if (savedSongs.current?.length === 0) {
+    if (playlistSongs.current?.length === 0) {
       setLoading(true);
       const data = await fetchRequest<{
         Success: boolean;
@@ -74,7 +74,7 @@ export default function PlayListSongs({
       }>(`playlists/songs/${playlistId}`);
 
       if (data?.Success) {
-        savedSongs.current = data.Songs;
+        playlistSongs.current = data.Songs;
         setLoading(false);
       }
     }
@@ -92,9 +92,11 @@ export default function PlayListSongs({
   useEffect(() => {
     if (visible) {
       if (loadedPlaylist.current !== playlistId) {
-        savedSongs.current = [];
+        playlistSongs.current = [];
         getSongs();
       }
+    } else {
+      setSelectedSongs([]);
     }
   }, [visible, getSongs, playlistId, loadedPlaylist]);
 
@@ -126,7 +128,7 @@ export default function PlayListSongs({
           <div className="flex align-content-center justify-content-center">
             <div className="datatable-playlist-songs">
               <DataTable
-                value={savedSongs.current}
+                value={playlistSongs.current}
                 selectionMode={null}
                 selection={selectedSongs}
                 onSelectionChange={(e) => selectSongs(e.value)}

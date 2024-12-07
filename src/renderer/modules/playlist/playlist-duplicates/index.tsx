@@ -55,6 +55,7 @@ export default function PlaylistDuplicates({
     );
 
     if (data?.Success) {
+      songsSelected.current = [];
       loadedPlaylist.current = '';
       setActiveIndex(0);
     }
