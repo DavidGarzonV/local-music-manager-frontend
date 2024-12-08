@@ -74,7 +74,13 @@ export default function PlayListSongs({
       }>(`playlists/songs/${playlistId}`);
 
       if (data?.Success) {
-        playlistSongs.current = data.Songs;
+        const songs = data.Songs.reduce((acc: PlaylistSong[], song) => {
+          if (!acc.find((s) => s.videoId === song.videoId)) {
+            acc.push(song);
+          }
+          return acc;
+        }, []);
+        playlistSongs.current = songs;
         setLoading(false);
       }
     }
@@ -134,8 +140,8 @@ export default function PlayListSongs({
                 onSelectionChange={(e) => selectSongs(e.value)}
                 dataKey="videoId"
                 paginator
-                rows={15}
-                rowsPerPageOptions={[15, 25, 50]}
+                rows={50}
+                rowsPerPageOptions={[25, 50, 100]}
                 tableStyle={{ minWidth: '50rem' }}
                 scrollable
                 scrollHeight="500px"
